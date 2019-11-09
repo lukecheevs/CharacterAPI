@@ -2,6 +2,8 @@ package com.evenflow.characterapi.model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import com.evenflow.characterapi.model.AbstractCharacter;
 import com.evenflow.characterapi.model.GenderList;
@@ -16,6 +18,15 @@ public class CharacterDAO {
 		createCharacters();
 	}
 
+	public List<AbstractCharacter> searchCharacters(String name) {
+		// @formatter:off
+		return characters.stream()
+				.filter(character -> Objects.nonNull(character.getName()))
+		        .filter(character -> character.getName().contains(name))
+		        .collect(Collectors.toList());
+		// @formatter:on
+	}
+
 	public AbstractCharacter retrieveCharacterById(int id) {
 		// @formatter:off
 		return characters.stream()
@@ -24,22 +35,22 @@ public class CharacterDAO {
 					.orElseThrow(() -> new RuntimeException("Character not found"));
 		// @formatter:on
 	}
-	
+
 	public void addCharacter(AbstractCharacter character) {
 		characters.add(character);
 	}
-	
+
 	public void updateWeaponForPlayableCharacter(String weapon, int id) {
 		for (AbstractCharacter character : characters) {
 			if (character.getId() == id && PlayableCharacter.class.isInstance(character)) {
-				PlayableCharacter newCharacter =(PlayableCharacter) character;
+				PlayableCharacter newCharacter = (PlayableCharacter) character;
 				newCharacter.setWeapon(weapon);
 				return;
 			}
 		}
 		throw new RuntimeException("Character not found.");
 	}
-	
+
 	public void deleteCharacter(int id) {
 		for (AbstractCharacter character : characters) {
 			if (character.getId() == id) {
