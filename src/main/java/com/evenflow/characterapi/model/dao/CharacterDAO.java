@@ -28,6 +28,27 @@ public class CharacterDAO {
 	public void addCharacter(AbstractCharacter character) {
 		characters.add(character);
 	}
+	
+	public void updateWeaponForPlayableCharacter(String weapon, int id) {
+		for (AbstractCharacter character : characters) {
+			if (character.getId() == id && PlayableCharacter.class.isInstance(character)) {
+				PlayableCharacter newCharacter =(PlayableCharacter) character;
+				newCharacter.setWeapon(weapon);
+				return;
+			}
+		}
+		throw new RuntimeException("Character not found.");
+	}
+	
+	public void deleteCharacter(int id) {
+		for (AbstractCharacter character : characters) {
+			if (character.getId() == id) {
+				characters.remove(character);
+				return;
+			}
+		}
+		throw new RuntimeException("Character not found.");
+	}
 
 	private void createCharacters() {
 		PlayableCharacter playableCharacter = new PlayableCharacter();
