@@ -12,6 +12,7 @@ public abstract class Character {
 	private int age;
 	private int height;
 	private int weight;
+	private int health;
 
 	public Character() {
 		id = RANDOM.nextInt();
@@ -60,4 +61,13 @@ public abstract class Character {
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
+
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
 }
