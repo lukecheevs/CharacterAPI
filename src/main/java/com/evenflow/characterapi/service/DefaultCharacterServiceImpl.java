@@ -3,10 +3,10 @@ package com.evenflow.characterapi.service;
 import java.util.List;
 import java.util.Objects;
 
+import com.evenflow.characterapi.dao.CharacterDAO;
 import com.evenflow.characterapi.model.AbstractCharacter;
 import com.evenflow.characterapi.model.Orc;
 import com.evenflow.characterapi.model.PlayableCharacter;
-import com.evenflow.characterapi.model.dao.CharacterDAO;
 
 public class DefaultCharacterServiceImpl implements CharacterService {
 
