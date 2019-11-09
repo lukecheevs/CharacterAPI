@@ -17,7 +17,7 @@ public class Orc extends Enemy {
 		this.temper = temper;
 	}
 
-	public boolean isTusks() {
+	public boolean hasTusks() {
 		return tusks;
 	}
 
