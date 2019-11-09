@@ -1,10 +1,14 @@
 package com.evenflow.characterapi.model;
 
-public abstract class Enemy extends Character {
+public class Enemy extends AbstractCharacter {
 
 	private String allegiance; 
 	private boolean boss;
 	private String weapon;
+	
+	public Enemy() {
+		super();
+	}
 	
 	public String getAllegiance() {
 		return allegiance;
