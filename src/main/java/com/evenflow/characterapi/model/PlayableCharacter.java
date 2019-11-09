@@ -1,11 +1,15 @@
 package com.evenflow.characterapi.model;
 
-public class PlayableCharacter extends Character {
+public class PlayableCharacter extends AbstractCharacter {
 
 	private int level;
 	private String weapon;
 	private String armor;
 
+	public PlayableCharacter() {
+		super();
+	}
+	
 	public int getLevel() {
 		return level;
 	}
@@ -30,7 +34,7 @@ public class PlayableCharacter extends Character {
 		this.armor = armor;
 	}
 
-	public void attack(Character character) {
+	public void attack(AbstractCharacter character) {
 		if (Enemy.class.isInstance(character)) {
 			character.setHealth(character.getHealth() - 1);
 		}

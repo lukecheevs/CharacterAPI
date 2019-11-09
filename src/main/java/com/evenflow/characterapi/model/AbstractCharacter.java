@@ -2,7 +2,7 @@ package com.evenflow.characterapi.model;
 
 import java.util.Random;
 
-public abstract class Character {
+public class AbstractCharacter {
 
 	private static final Random RANDOM = new Random();
 
@@ -14,7 +14,7 @@ public abstract class Character {
 	private int weight;
 	private int health;
 
-	public Character() {
+	public AbstractCharacter() {
 		id = RANDOM.nextInt();
 	}
 

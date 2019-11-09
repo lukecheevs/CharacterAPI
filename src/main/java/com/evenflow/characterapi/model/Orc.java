@@ -5,6 +5,10 @@ public class Orc extends Enemy {
 	private String temper;
 	private boolean tusks;
 	
+	public Orc() {
+		super();
+	}
+	
 	public String getTemper() {
 		return temper;
 	}
@@ -21,7 +25,7 @@ public class Orc extends Enemy {
 		this.tusks = tusks;
 	}
 	
-	public void attack(Character character) {
+	public void attack(AbstractCharacter character) {
 		character.setHealth(character.getHealth() - 1);
 	}
 }
